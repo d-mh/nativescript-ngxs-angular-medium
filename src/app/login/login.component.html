@@ -1,0 +1,16 @@
+<StackLayout [formGroup]="loginForm" class="nt-form">
+    <Image class="logo" src="~/images/logo.png"></Image>
+
+    <Label *ngIf="loginForm?.errors?.wrongUsernamePassword" text="Incorrect email or password."
+        class="nt-label text-center text-danger"></Label>
+
+    <StackLayout class="nt-input">
+        <TextField formControlName="email" class="-border" hint="Email" keyboardType="email" autocorrect="false"
+            autocapitalizationType="none">
+        </TextField>
+        <TextField formControlName="password" class="-border" hint="Password" secure="true"></TextField>
+    </StackLayout>
+
+    <Button [isEnabled]="loginForm.valid" text="Log In" class="-primary" (tap)="submit()"></Button>
+
+</StackLayout>
